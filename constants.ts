@@ -63,7 +63,7 @@ export const FEATURES: FeatureItem[] = [
 
 export const SPEAKER_INFO: Speaker = {
   name: "Mr Nguyễn Phước Vĩnh Hưng",
-  role: "CEO công ty cổ phần công nghệ duhava",
+  role: "Founder Duhava Technology JSC",
   imageUrl: "https://i.imgur.com/HIDog7f.jpeg",
   achievements: [
     "Kinh nghiệm Kinh Doanh Online từ 2016",
