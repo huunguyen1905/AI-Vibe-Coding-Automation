@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock } from 'lucide-react';
+import { Clock, ShoppingBag } from 'lucide-react';
 import { COUNTDOWN_TARGET } from '../constants';
 
 const CountdownBar: React.FC = () => {
@@ -7,7 +7,7 @@ const CountdownBar: React.FC = () => {
 
   useEffect(() => {
     const calculateTimeLeft = () => {
-      // Lấy thời gian mục tiêu từ file constants (đã chỉnh theo múi giờ VN)
+      // Lấy thời gian mục tiêu từ file constants
       const targetDate = new Date(COUNTDOWN_TARGET).getTime();
       const now = new Date().getTime();
       
@@ -40,31 +40,44 @@ const CountdownBar: React.FC = () => {
 
   return (
     // Added backdrop-blur and slight transparency for glass effect
-    <div className="sticky top-0 z-50 bg-gradient-to-r from-red-600/95 to-red-500/95 backdrop-blur-md text-white shadow-lg border-b border-white/10">
-      <div className="max-w-4xl mx-auto px-4 py-3 flex items-center justify-between">
-        <div className="flex items-center gap-2 font-bold text-sm md:text-base uppercase tracking-wider">
-          <Clock className="w-5 h-5 animate-pulse" />
-          <span className="hidden sm:inline">Ưu đãi sẽ kết thúc sau:</span>
-          <span className="sm:hidden">Kết thúc:</span>
+    <div className="sticky top-0 z-50 bg-gradient-to-r from-red-700 via-red-600 to-red-700 backdrop-blur-md text-white shadow-lg border-b border-white/10">
+      <div className="max-w-4xl mx-auto px-2 md:px-4 py-2 flex flex-wrap sm:flex-nowrap items-center justify-center sm:justify-between gap-y-2 gap-x-2">
+        
+        {/* Sale Badge & Text */}
+        <div className="flex items-center justify-center gap-2 w-full sm:w-auto">
+          <div className="flex items-center gap-2">
+            <span className="bg-yellow-400 text-red-900 text-[10px] md:text-xs font-black px-2 py-0.5 rounded shadow-sm uppercase tracking-tighter whitespace-nowrap flex items-center gap-1">
+               <ShoppingBag className="w-3 h-3" />
+               Black Friday / Cyber Monday
+            </span>
+          </div>
+          
+          <div className="flex items-center gap-1.5 text-xs md:text-sm font-medium opacity-90 whitespace-nowrap">
+             <Clock className="w-3.5 h-3.5 md:w-4 md:h-4 animate-pulse" />
+             <span className="hidden sm:inline">Ưu đãi kết thúc sau:</span>
+             <span className="sm:hidden">Kết thúc:</span>
+          </div>
         </div>
-        <div className="flex gap-2 text-center">
+
+        {/* Timer */}
+        <div className="flex gap-1.5 md:gap-2 text-center">
           {time.d > 0 && (
-            <div className="bg-black/20 rounded px-2 py-1 min-w-[40px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
-              <span className="block font-bold text-lg leading-none font-mono">{String(time.d).padStart(2, '0')}</span>
-              <span className="text-[9px] opacity-80 uppercase tracking-wider">Ngày</span>
+            <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[36px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
+              <span className="block font-bold text-base md:text-lg leading-none font-mono">{String(time.d).padStart(2, '0')}</span>
+              <span className="text-[8px] md:text-[9px] opacity-80 uppercase tracking-wider">Ngày</span>
             </div>
           )}
-          <div className="bg-black/20 rounded px-2 py-1 min-w-[40px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
-            <span className="block font-bold text-lg leading-none font-mono">{String(time.h).padStart(2, '0')}</span>
-            <span className="text-[9px] opacity-80 uppercase tracking-wider">Giờ</span>
+          <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[36px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
+            <span className="block font-bold text-base md:text-lg leading-none font-mono">{String(time.h).padStart(2, '0')}</span>
+            <span className="text-[8px] md:text-[9px] opacity-80 uppercase tracking-wider">Giờ</span>
           </div>
-          <div className="bg-black/20 rounded px-2 py-1 min-w-[40px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
-            <span className="block font-bold text-lg leading-none font-mono">{String(time.m).padStart(2, '0')}</span>
-            <span className="text-[9px] opacity-80 uppercase tracking-wider">Phút</span>
+          <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[36px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
+            <span className="block font-bold text-base md:text-lg leading-none font-mono">{String(time.m).padStart(2, '0')}</span>
+            <span className="text-[8px] md:text-[9px] opacity-80 uppercase tracking-wider">Phút</span>
           </div>
-          <div className="bg-black/20 rounded px-2 py-1 min-w-[40px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
-            <span className="block font-bold text-lg leading-none font-mono">{String(time.s).padStart(2, '0')}</span>
-            <span className="text-[9px] opacity-80 uppercase tracking-wider">Giây</span>
+          <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[36px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
+            <span className="block font-bold text-base md:text-lg leading-none font-mono">{String(time.s).padStart(2, '0')}</span>
+            <span className="text-[8px] md:text-[9px] opacity-80 uppercase tracking-wider">Giây</span>
           </div>
         </div>
       </div>

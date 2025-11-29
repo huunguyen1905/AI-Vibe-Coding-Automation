@@ -104,9 +104,9 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Column: Order Form (Sticky on Desktop) - Added animation */}
-            <div className="lg:col-span-5 relative animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-              <div className="lg:sticky lg:top-32">
+            {/* Right Column: Order Form (Sticky Sidebar) */}
+            <div className="lg:col-span-5 relative">
+              <div className="lg:sticky lg:top-28 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                 <OrderForm onSuccess={handleOrderSuccess} />
                 
                 {/* Social Proof / Trust below form */}

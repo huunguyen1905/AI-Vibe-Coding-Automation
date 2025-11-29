@@ -2,8 +2,13 @@ import { FeatureItem, Speaker, BundlePricing } from './types';
 
 export const PROGRAM_NAME = "AI Vibe Coding & Automation";
 
-// Mốc thời gian đếm ngược (Format ISO 8601) - 19:30 ngày 29/11/2025 theo giờ Việt Nam
-export const COUNTDOWN_TARGET = "2025-11-29T19:30:00+07:00";
+// Logic: Đếm ngược đến 6h tối (18:00) ngày mai
+const now = new Date();
+const targetDate = new Date(now);
+targetDate.setDate(now.getDate() + 1); // Cộng thêm 1 ngày
+targetDate.setHours(18, 0, 0, 0); // Set giờ là 18:00
+
+export const COUNTDOWN_TARGET = targetDate.toISOString();
 
 // Link tham gia nhóm Zalo sau khi thanh toán thành công
 export const ZALO_GROUP_URL = "https://zalo.me/g/ujsagp464";
@@ -77,9 +82,9 @@ export const SPEAKER_INFO: Speaker = {
 export const PRICING: BundlePricing = {
   // Tổng giá trị thực tế của 8 module
   originalPrice: 13200000, 
-  // Số tiền giảm để còn lại 379k (13.200.000 - 379.000 = 12.821.000)
-  discountAmount: 12821000,
-  finalPrice: 379000
+  // Số tiền giảm để còn lại 497k (13.200.000 - 497.000 = 12.703.000)
+  discountAmount: 12703000,
+  finalPrice: 497000
 };
 
 export const TARGET_AUDIENCE = [
