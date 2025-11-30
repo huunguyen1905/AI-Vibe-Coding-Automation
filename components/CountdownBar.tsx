@@ -48,7 +48,7 @@ const CountdownBar: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="bg-yellow-400 text-red-900 text-[10px] md:text-xs font-black px-2 py-0.5 rounded shadow-sm uppercase tracking-tighter whitespace-nowrap flex items-center gap-1">
                <ShoppingBag className="w-3 h-3" />
-               Black Friday / Cyber Monday
+               <span className="line-through decoration-red-900/50">Black Friday</span> / Cyber Monday
             </span>
           </div>
           

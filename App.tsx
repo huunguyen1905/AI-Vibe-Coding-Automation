@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import CountdownBar from './components/CountdownBar';
 import FeatureList from './components/FeatureList';
 import OrderForm from './components/OrderForm';
@@ -7,31 +7,6 @@ import BackgroundEffect from './components/BackgroundEffect';
 import PaymentModal from './components/PaymentModal';
 import { ShieldCheck, Terminal } from 'lucide-react';
 import { PROGRAM_NAME } from './constants';
-
-const TypewriterText = ({ text }: { text: string }) => {
-  const [displayText, setDisplayText] = useState('');
-  
-  useEffect(() => {
-    let i = 0;
-    setDisplayText('');
-    const timer = setInterval(() => {
-      if (i < text.length) {
-        setDisplayText((prev) => prev + text.charAt(i));
-        i++;
-      } else {
-        clearInterval(timer);
-      }
-    }, 50); // Speed of typing
-    return () => clearInterval(timer);
-  }, [text]);
-
-  return (
-    <span>
-      {displayText}
-      <span className="animate-pulse text-green-500">_</span>
-    </span>
-  );
-};
 
 const App: React.FC = () => {
   const [paymentModal, setPaymentModal] = useState({
@@ -73,7 +48,7 @@ const App: React.FC = () => {
         </header>
 
         <main className="max-w-6xl mx-auto px-4 py-8 md:py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
             
             {/* Left Column: Sales Copy - Added animation */}
             <div className="lg:col-span-7 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
@@ -84,9 +59,10 @@ const App: React.FC = () => {
                     Master Class 2025
                  </div>
 
-                 {/* Typewriter Headline */}
+                 {/* Static Headline */}
                  <h1 className="text-4xl md:text-6xl lg:text-7xl font-black mb-6 leading-[1.1] tracking-tight text-gray-900">
-                   <TypewriterText text={PROGRAM_NAME} />
+                   {PROGRAM_NAME}
+                   <span className="animate-pulse text-green-500">_</span>
                  </h1>
                  
                  <p className="text-lg text-gray-600 max-w-2xl leading-relaxed mb-8">
@@ -106,22 +82,24 @@ const App: React.FC = () => {
 
             {/* Right Column: Order Form (Sticky Sidebar) */}
             <div className="lg:col-span-5 relative">
-              <div className="lg:sticky lg:top-28 animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
-                <OrderForm onSuccess={handleOrderSuccess} />
-                
-                {/* Social Proof / Trust below form */}
-                <div className="mt-6 flex flex-col items-center justify-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
-                   <div className="flex -space-x-2">
-                      {[1,2,3,4].map(i => (
-                        <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-[10px] text-gray-500 overflow-hidden">
-                           <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i*132}`} alt="user" />
+              <div className="lg:sticky lg:top-28">
+                <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+                  <OrderForm onSuccess={handleOrderSuccess} />
+                  
+                  {/* Social Proof / Trust below form */}
+                  <div className="mt-6 flex flex-col items-center justify-center gap-2 opacity-70 hover:opacity-100 transition-opacity">
+                     <div className="flex -space-x-2">
+                        {[1,2,3,4].map(i => (
+                          <div key={i} className="w-8 h-8 rounded-full border-2 border-white bg-gray-200 flex items-center justify-center text-[10px] text-gray-500 overflow-hidden">
+                             <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${i*132}`} alt="user" />
+                          </div>
+                        ))}
+                        <div className="w-8 h-8 rounded-full border-2 border-white bg-green-100 flex items-center justify-center text-[10px] font-bold text-green-700">
+                          +500
                         </div>
-                      ))}
-                      <div className="w-8 h-8 rounded-full border-2 border-white bg-green-100 flex items-center justify-center text-[10px] font-bold text-green-700">
-                        +500
-                      </div>
-                   </div>
-                   <span className="text-xs text-gray-400 font-medium font-mono">Join 500+ AI Developers today</span>
+                     </div>
+                     <span className="text-xs text-gray-400 font-medium font-mono">Join 500+ AI Developers today</span>
+                  </div>
                 </div>
               </div>
             </div>
