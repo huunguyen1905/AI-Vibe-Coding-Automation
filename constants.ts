@@ -2,11 +2,15 @@ import { FeatureItem, Speaker, BundlePricing } from './types';
 
 export const PROGRAM_NAME = "AI Vibe Coding & Automation";
 
-// Logic: Đếm ngược đến 6h tối (18:00) ngày mai
+// Logic: Đếm ngược đến 23h59 tối nay (Hết ngày)
 const now = new Date();
 const targetDate = new Date(now);
-targetDate.setDate(now.getDate() + 1); // Cộng thêm 1 ngày
-targetDate.setHours(18, 0, 0, 0); // Set giờ là 18:00
+targetDate.setHours(23, 59, 59, 0);
+
+// Nếu hiện tại đã qua 23h59 (ví dụ vào lúc 23h59m59s), cộng thêm 1 ngày để tránh lỗi
+if (now.getTime() > targetDate.getTime()) {
+  targetDate.setDate(targetDate.getDate() + 1);
+}
 
 export const COUNTDOWN_TARGET = targetDate.toISOString();
 
@@ -60,15 +64,15 @@ export const FEATURES: FeatureItem[] = [
     value: "1.200.000đ"
   },
   {
-    text: "Module 8: Học LIVE trực tuyến cùng chuyên gia",
-    highlight: "19h30 - 22h30, 01/12/2025",
+    text: "Module 8: Video Record Full Buổi Học (4K)",
+    highlight: "Xem lại trọn đời + Full Source Code + Tài liệu",
     value: "2.500.000đ"
   }
 ];
 
 export const SPEAKER_INFO: Speaker = {
   name: "Mr Nguyễn Phước Vĩnh Hưng",
-  role: "Founder Duhava Technology JSC",
+  role: "CEO công ty cổ phần công nghệ duhava",
   imageUrl: "https://i.imgur.com/HIDog7f.jpeg",
   achievements: [
     "Kinh nghiệm Kinh Doanh Online từ 2016",
@@ -82,9 +86,9 @@ export const SPEAKER_INFO: Speaker = {
 export const PRICING: BundlePricing = {
   // Tổng giá trị thực tế của 8 module
   originalPrice: 13200000, 
-  // Số tiền giảm để còn lại 497k (13.200.000 - 497.000 = 12.703.000)
-  discountAmount: 12703000,
-  finalPrice: 497000
+  // Số tiền giảm để còn lại 599k (13.200.000 - 599.000 = 12.601.000)
+  discountAmount: 12601000,
+  finalPrice: 599000
 };
 
 export const TARGET_AUDIENCE = [

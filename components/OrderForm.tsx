@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PRICING, PROGRAM_NAME, GOOGLE_SHEET_WEBAPP_URL } from '../constants';
-import { Lock, Check, User, Phone, Mail, Loader2 } from 'lucide-react';
+import { Lock, Check, User, Phone, Mail, Loader2, PlayCircle } from 'lucide-react';
 
 interface OrderFormProps {
   onSuccess: (orderId: string, customerName: string) => void;
@@ -93,9 +93,9 @@ const OrderForm: React.FC<OrderFormProps> = ({ onSuccess }) => {
       {/* Form Header */}
       <div className="bg-gradient-to-b from-gray-50 to-white p-6 border-b border-gray-100 text-center relative overflow-hidden">
         <div className="flex justify-center items-center gap-4 text-sm font-medium text-gray-500 relative z-10">
-          <span className="flex items-center gap-1 text-green-600 bg-green-50 px-2 py-1 rounded-full"><Check className="w-3 h-3" /> Đăng Ký</span>
+          <span className="flex items-center gap-1 text-red-600 bg-red-50 px-2 py-1 rounded-full"><Check className="w-3 h-3" /> Đăng Ký</span>
           <div className="w-8 h-px bg-gray-300"></div>
-          <span className="flex items-center gap-1 text-gray-400">Vào Nhóm Kín</span>
+          <span className="flex items-center gap-1 text-gray-600">Nhận Record</span>
         </div>
         <div className="absolute -top-10 -right-10 w-32 h-32 bg-green-50 rounded-full blur-2xl opacity-50"></div>
       </div>
@@ -144,7 +144,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ onSuccess }) => {
             </div>
 
             <div className="relative group">
-              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Email thường dùng *</label>
+              <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-1.5 ml-1">Email nhận Record *</label>
               <div className="relative">
                 <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-gray-400 group-focus-within:text-green-500 transition-colors">
                   <Mail className="w-5 h-5" />
@@ -170,7 +170,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ onSuccess }) => {
               <span className="line-through">{formatCurrency(PRICING.originalPrice)}</span>
             </div>
             <div className="flex justify-between items-center text-red-500 font-medium">
-              <span>Mã giảm giá: AI</span>
+              <span>Mã giảm giá: RECORD-SALE</span>
               <span className="bg-red-100 text-red-600 px-2 py-0.5 rounded text-xs border border-red-200">-{formatCurrency(PRICING.discountAmount)}</span>
             </div>
             <div className="border-t border-gray-200 dashed pt-3 flex justify-between items-center font-bold text-lg text-gray-900">
@@ -189,7 +189,7 @@ const OrderForm: React.FC<OrderFormProps> = ({ onSuccess }) => {
               <div>
                 <span className="block font-bold text-gray-800">Chuyển khoản ngân hàng</span>
                 <p className="text-xs text-gray-600 mt-1 leading-relaxed">
-                  Thực hiện thanh toán vào ngay tài khoản ngân hàng của chúng tôi. Vui lòng sử dụng <span className="font-semibold text-gray-800">Mã Đơn Hàng</span> của bạn trong phần Nội dung thanh toán.
+                  Link Record và Tài khoản AI sẽ được gửi tự động qua Email/Zalo sau khi thanh toán thành công.
                 </p>
               </div>
             </label>
@@ -211,15 +211,15 @@ const OrderForm: React.FC<OrderFormProps> = ({ onSuccess }) => {
                 </>
               ) : (
                 <>
-                  <Lock className="w-5 h-5 opacity-90" />
-                  <span>OK, VÀO VIỆC THÔI!</span>
+                  <PlayCircle className="w-5 h-5 opacity-90" />
+                  <span>MUA RECORD NGAY!</span>
                 </>
               )}
             </div>
           </button>
 
           <p className="text-center text-[11px] text-gray-400 mt-4 leading-tight">
-             Thông tin cá nhân của bạn sẽ được bảo mật tuyệt đối theo chính sách riêng tư của HUNGNPV.
+             Thông tin của bạn được dùng để gửi quyền truy cập khoá học.
           </p>
         </form>
       </div>

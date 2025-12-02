@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import CountdownBar from './components/CountdownBar';
 import FeatureList from './components/FeatureList';
 import OrderForm from './components/OrderForm';
 import InfoSection from './components/InfoSection';
 import BackgroundEffect from './components/BackgroundEffect';
 import PaymentModal from './components/PaymentModal';
-import { ShieldCheck, Terminal } from 'lucide-react';
+import { ShieldCheck, Terminal, Video } from 'lucide-react';
 import { PROGRAM_NAME } from './constants';
 
 const App: React.FC = () => {
@@ -30,10 +29,9 @@ const App: React.FC = () => {
       
       {/* Content wrapper with z-index to sit above background */}
       <div className="relative z-10">
-        <CountdownBar />
         
         {/* Brand Header */}
-        <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 py-4 sticky top-[60px] z-40 transition-all">
+        <header className="bg-white/80 backdrop-blur-md border-b border-gray-100 py-4 sticky top-0 z-40 transition-all">
           <div className="max-w-6xl mx-auto px-4 flex justify-between items-center">
             <div className="font-extrabold text-2xl tracking-tighter text-gray-900 flex items-center gap-1 group cursor-pointer">
               <Terminal className="w-6 h-6 text-gray-800 group-hover:text-green-500 transition-colors" />
@@ -54,9 +52,9 @@ const App: React.FC = () => {
             <div className="lg:col-span-7 animate-fade-in-up" style={{ animationDelay: '0.1s' }}>
               <div className="mb-10">
                  {/* Decorative Tag */}
-                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-green-50 border border-green-100 text-green-700 text-xs font-bold uppercase tracking-wider mb-4 font-mono">
-                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
-                    Master Class 2025
+                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-50 border border-red-100 text-red-700 text-xs font-bold uppercase tracking-wider mb-4 font-mono">
+                    <Video className="w-3 h-3 animate-pulse" />
+                    Record Available
                  </div>
 
                  {/* Static Headline */}
@@ -66,7 +64,7 @@ const App: React.FC = () => {
                  </h1>
                  
                  <p className="text-lg text-gray-600 max-w-2xl leading-relaxed mb-8">
-                    Buổi chia sẻ từ cơ bản đến nâng cao dành cho người mới làm chủ <span className="font-semibold text-gray-900 bg-gray-100 px-1 rounded">Generative AI</span> và tự động hóa quy trình vibe coding ra thành phẩm.
+                    <span className="font-bold text-red-500">Chương trình LIVE đã kết thúc thành công!</span> Bạn đã bỏ lỡ? Đừng lo, hãy đăng ký ngay để sở hữu trọn bộ <span className="font-semibold text-gray-900 bg-gray-100 px-1 rounded">Video Record 4K</span> + Tài khoản AI Pro + Source Code để làm chủ Generative AI ngay hôm nay.
                  </p>
               </div>
 
@@ -82,7 +80,7 @@ const App: React.FC = () => {
 
             {/* Right Column: Order Form (Sticky Sidebar) */}
             <div className="lg:col-span-5 relative">
-              <div className="lg:sticky lg:top-28">
+              <div className="lg:sticky lg:top-24">
                 <div className="animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
                   <OrderForm onSuccess={handleOrderSuccess} />
                   
@@ -98,7 +96,7 @@ const App: React.FC = () => {
                           +500
                         </div>
                      </div>
-                     <span className="text-xs text-gray-400 font-medium font-mono">Join 500+ AI Developers today</span>
+                     <span className="text-xs text-gray-400 font-medium font-mono">500+ members have joined</span>
                   </div>
                 </div>
               </div>

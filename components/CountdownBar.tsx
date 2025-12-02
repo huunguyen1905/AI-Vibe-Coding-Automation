@@ -48,7 +48,7 @@ const CountdownBar: React.FC = () => {
           <div className="flex items-center gap-2">
             <span className="bg-yellow-400 text-red-900 text-[10px] md:text-xs font-black px-2 py-0.5 rounded shadow-sm uppercase tracking-tighter whitespace-nowrap flex items-center gap-1">
                <ShoppingBag className="w-3 h-3" />
-               <span className="line-through decoration-red-900/50">Black Friday</span> / Cyber Monday
+               <span className="line-through decoration-red-900/50">Flash Sale</span> / Record
             </span>
           </div>
           
@@ -62,20 +62,20 @@ const CountdownBar: React.FC = () => {
         {/* Timer */}
         <div className="flex gap-1.5 md:gap-2 text-center">
           {time.d > 0 && (
-            <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[36px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
+            <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[35px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
               <span className="block font-bold text-base md:text-lg leading-none font-mono">{String(time.d).padStart(2, '0')}</span>
               <span className="text-[8px] md:text-[9px] opacity-80 uppercase tracking-wider">Ngày</span>
             </div>
           )}
-          <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[36px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
+          <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[35px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
             <span className="block font-bold text-base md:text-lg leading-none font-mono">{String(time.h).padStart(2, '0')}</span>
             <span className="text-[8px] md:text-[9px] opacity-80 uppercase tracking-wider">Giờ</span>
           </div>
-          <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[36px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
+          <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[35px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
             <span className="block font-bold text-base md:text-lg leading-none font-mono">{String(time.m).padStart(2, '0')}</span>
             <span className="text-[8px] md:text-[9px] opacity-80 uppercase tracking-wider">Phút</span>
           </div>
-          <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[36px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
+          <div className="bg-black/30 rounded px-1.5 md:px-2 py-1 min-w-[35px] md:min-w-[44px] border border-white/10 backdrop-blur-sm">
             <span className="block font-bold text-base md:text-lg leading-none font-mono">{String(time.s).padStart(2, '0')}</span>
             <span className="text-[8px] md:text-[9px] opacity-80 uppercase tracking-wider">Giây</span>
           </div>
